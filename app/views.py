@@ -8,21 +8,34 @@ from datetime import datetime
 
 from drf_spectacular.utils import extend_schema
 
-class AvailableSlotsView(APIView):
-    """Получить список доступных слотов"""
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.views import APIView
+from drf_spectacular.utils import extend_schema
+from .models import Schedule, ExtraLesson
+from .serializers import ScheduleSerializer, ExtraLessonSerializer
+
+class OccupiedRoomsView(APIView):
+    """Получить список занятых помещений с расписанием и доп. уроками"""
 
     @extend_schema(
-        summary="Получить доступные слоты",
-        description="Возвращает список всех доступных слотов для бронирования.",
+        summary="Получить занятые помещения",
+        description="Возвращает список всех занятий, включая регулярное расписание и дополнительные уроки.",
         responses={
             200: ScheduleSerializer(many=True),
             400: "Ошибка запроса",
         },
     )
     def get(self, request):
-        available_slots = Schedule.objects.filter(is_online=False)
-        serializer = ScheduleSerializer(available_slots, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        schedule_entries = Schedule.objects.all()
+        extra_lessons = ExtraLesson.objects.all()
+
+        schedule_data = ScheduleSerializer(schedule_entries, many=True).data
+        extra_lesson_data = ExtraLessonSerializer(extra_lessons, many=True).data
+
+        combined_data = schedule_data + extra_lesson_data
+
+        return Response(combined_data, status=status.HTTP_200_OK)
 
 class BookSlotView(APIView):
     """Забронировать слот"""
