@@ -29,7 +29,9 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://tamirlan1919-ansarschdule-ed72.twc1.net',
+]
 
 # Application definition
 
