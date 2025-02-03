@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
 JAZZMIN_SETTINGS = {
     "site_title": "Управление школой",
-    "site_header": "Школьный Админ",
+    "site_header": "Ansar",
     "site_logo": "img/my_logo.png",  # путь к вашему логотипу
     "site_brand": 'Ansar',
     "welcome_sign": "Добро пожаловать в панель управления",
@@ -153,7 +153,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
