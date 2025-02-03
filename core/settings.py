@@ -94,16 +94,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'default_db',
-#         'USER': 'gen_user',
-#         'PASSWORD': "T@)2NBj?}W:CjC",
-#         'HOST': '89.23.117.56',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'default_db',
+        'USER': 'gen_user',
+        'PASSWORD': "s}lH0\T4hT-\:k",
+        'HOST': '91.135.157.147',
+        'PORT': '5432',
+    }
+}
 
 
 DATABASES = {
