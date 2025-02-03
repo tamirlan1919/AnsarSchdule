@@ -52,7 +52,8 @@ INSTALLED_APPS = [
 JAZZMIN_SETTINGS = {
     "site_title": "Управление школой",
     "site_header": "Школьный Админ",
-    "site_brand": "Админка",
+    "site_logo": "img/my_logo.png",  # путь к вашему логотипу
+    "site_brand": 'Ansar',
     "welcome_sign": "Добро пожаловать в панель управления",
     "show_sidebar": True,
     "navigation_expanded": True,
