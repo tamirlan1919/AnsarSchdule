@@ -36,18 +36,27 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
-
-    'django.contrib.admin',
+    'jazzmin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.admin",
     'app',
     'rest_framework',
     'drf_spectacular',
-
 ]
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Управление школой",
+    "site_header": "Школьный Админ",
+    "site_brand": "Админка",
+    "welcome_sign": "Добро пожаловать в панель управления",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,16 +93,25 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'default_db',
+#         'USER': 'gen_user',
+#         'PASSWORD': "T@)2NBj?}W:CjC",
+#         'HOST': '89.23.117.56',
+#         'PORT': '5432',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'default_db',
-        'USER': 'gen_user',
-        'PASSWORD': "T@)2NBj?}W:CjC",
-        'HOST': '89.23.117.56',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
