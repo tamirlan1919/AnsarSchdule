@@ -16,7 +16,8 @@ class Group(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Название группы")
     is_closed = models.BooleanField(default=False, verbose_name="Закрытая группа")
     is_online = models.BooleanField(default=False, verbose_name="Онлайн группа")
-    is_individual = models.BooleanField(default=False, verbose_name="Индивидуальная группа")
+    is_individual = models.BooleanField(default=False, verbose_name="Индивидуальный ученик офлайн", blank=True)
+    is_individual_online = models.BooleanField(default=False, verbose_name="Индивидуальная ученик онлайн", blank=True)
 
     def __str__(self):
         return self.name
@@ -56,7 +57,7 @@ class Schedule(models.Model):
     weekday = models.CharField(max_length=3, choices=WEEKDAYS, verbose_name="День недели")
 
     def clean(self):
-        if self.group.is_online or self.group.is_individual:
+        if self.group.is_online or self.group.is_individual_online:
             self.classroom = None
 
         if self.classroom:
